@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
-{/*Player * /
-    // Start is called before the first frame update
+{  /*Class that handles all the movement of the player, will be customizable throughout development   */
+    //Start is called before the first frame update
     void Start()
     {
         
