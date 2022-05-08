@@ -74,11 +74,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!characterController.isGrounded)
         {
-            moveDirection.y -= gravity * Time.deltaTime;
-
-           
+            moveDirection.y -= gravity * Time.deltaTime;          
         }
         characterController.Move(moveDirection * Time.deltaTime);
     }
 
+
+    //GETTERS AND SETTERS
+    public Camera GetPlayerCamera()
+    {
+        return playerCamera;
+    }
+
+    public Vector3 GetPlayerMoveDirection()
+    {
+        return moveDirection;
+    }
 }
