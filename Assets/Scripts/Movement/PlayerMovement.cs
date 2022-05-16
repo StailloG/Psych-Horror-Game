@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     private void HandleMovementInput()
     {
         currentInput = new Vector2(walkSpeed * Input.GetAxis("Vertical"), walkSpeed * Input.GetAxis("Horizontal"));
-        Debug.Log(currentInput);
+      
         float moveDirectionY = moveDirection.y;
         moveDirection = (transform.TransformDirection(Vector3.forward) * currentInput.x) + (transform.TransformDirection(Vector3.right) * currentInput.y);
         moveDirection.y = moveDirectionY;
