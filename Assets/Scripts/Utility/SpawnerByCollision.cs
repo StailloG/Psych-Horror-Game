@@ -14,9 +14,8 @@ public class SpawnerByCollision : MonoBehaviour
     [Header("Delay in seconds before it spawns")]
     [SerializeField] private float timeDelay;
 
-    [Header("Debugging Help")]
-    [SerializeField]  private BoxCollider boxCollider;
-    [SerializeField] private Color radiusOfSpawnerColor;
+
+    private BoxCollider boxCollider;
     private GameObject spawnedItem;
     private bool spawned = false; //simple bool check to make sure item only spawns once
 
@@ -30,7 +29,7 @@ public class SpawnerByCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(boxCollider.size.x);
+        
     }
 
 
@@ -45,14 +44,7 @@ public class SpawnerByCollision : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        // Draw a yellow sphere at the transform's position
-        Gizmos.color = radiusOfSpawnerColor;
-        Gizmos.DrawSphere(transform.position, boxCollider.size.x - 6.0f);
-        
-        //boxCollider.size.x
-    }
+
     private void SpawnObject(float timeDelay)
     {
         spawnedItem = Instantiate(itemToSpawn, whereToSpawn.position, Quaternion.identity);
