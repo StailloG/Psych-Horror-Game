@@ -11,6 +11,11 @@ public class SpawnerByCollision : MonoBehaviour
     [Header("The Gameobject that will be spawned")]
     [SerializeField] private GameObject itemToSpawn;
 
+    [Header("The spawned Gameobject's new transform")]
+    [SerializeField] private Vector3 target = new Vector3(127.7f, 0f, 0f);
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float movement;
+
     [Header("Delay in seconds before it spawns")]
     [SerializeField] private float timeDelay;
 
@@ -24,12 +29,18 @@ public class SpawnerByCollision : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider>();
         boxCollider.isTrigger = true;
+
+        //butterfly movement
+        movement = speed * Time.deltaTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (spawned == true)
+        {
+            butterflyMovement();
+        }
     }
 
 
@@ -48,5 +59,10 @@ public class SpawnerByCollision : MonoBehaviour
     private void SpawnObject(float timeDelay)
     {
         spawnedItem = Instantiate(itemToSpawn, whereToSpawn.position, Quaternion.identity);
+    }
+
+    private void butterflyMovement()
+    {
+        spawnedItem.transform.position = Vector3.MoveTowards(spawnedItem.transform.position, target, movement);
     }
 }
