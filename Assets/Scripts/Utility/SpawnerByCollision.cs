@@ -19,8 +19,9 @@ public class SpawnerByCollision : MonoBehaviour
     [Header("Delay in seconds before it spawns")]
     [SerializeField] private float timeDelay;
 
-
-    private BoxCollider boxCollider;
+    [Header("Debugging help")]
+    [SerializeField] private Color radiusOfSpawnerColor;
+   [SerializeField] private BoxCollider boxCollider;
     private GameObject spawnedItem;
     private bool spawned = false; //simple bool check to make sure item only spawns once
 
@@ -54,7 +55,14 @@ public class SpawnerByCollision : MonoBehaviour
             //todo make a script that makes butterfly already flapping wings 
         }
     }
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = radiusOfSpawnerColor;
+        Gizmos.DrawSphere(transform.position, boxCollider.size.x - 6.0f);
 
+        
+    }
 
     private void SpawnObject(float timeDelay)
     {

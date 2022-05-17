@@ -752,6 +752,8 @@ MonoBehaviour:
   speed: 5
   movement: 0
   timeDelay: 0
+  radiusOfSpawnerColor: {r: 0.8584906, g: 0.01214843, b: 0.01214843, a: 0.50980395}
+  boxCollider: {fileID: 1792717469}
 --- !u!65 &1792717469
 BoxCollider:
   m_ObjectHideFlags: 0
