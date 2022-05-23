@@ -11,37 +11,26 @@ public class SpawnerByCollision : MonoBehaviour
     [Header("The Gameobject that will be spawned")]
     [SerializeField] private GameObject itemToSpawn;
 
-    [Header("The spawned Gameobject's new transform")]
-    [SerializeField] private Vector3 target = new Vector3(127.7f, 0f, 0f);
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float movement;
-
     [Header("Delay in seconds before it spawns")]
     [SerializeField] private float timeDelay;
 
     [Header("Debugging help")]
     [SerializeField] private Color radiusOfSpawnerColor;
    [SerializeField] private BoxCollider boxCollider;
-    private GameObject spawnedItem;
-    private bool spawned = false; //simple bool check to make sure item only spawns once
+    public GameObject spawnedItem;
+    public bool spawned = false; //simple bool check to make sure item only spawns once
 
     // Start is called before the first frame update
     void Start()
     {
         boxCollider = GetComponent<BoxCollider>();
         boxCollider.isTrigger = true;
-
-        //butterfly movement
-        movement = speed * Time.deltaTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawned == true)
-        {
-            butterflyMovement();
-        }
+        
     }
 
 
@@ -52,7 +41,6 @@ public class SpawnerByCollision : MonoBehaviour
             //spawn object
             SpawnObject(0.0f);
             spawned = true;
-            //todo make a script that makes butterfly already flapping wings 
         }
     }
     void OnDrawGizmos()
@@ -60,8 +48,6 @@ public class SpawnerByCollision : MonoBehaviour
         // Draw a yellow sphere at the transform's position
         Gizmos.color = radiusOfSpawnerColor;
         Gizmos.DrawSphere(transform.position, boxCollider.size.x - 6.0f);
-
-        
     }
 
     private void SpawnObject(float timeDelay)
@@ -69,8 +55,5 @@ public class SpawnerByCollision : MonoBehaviour
         spawnedItem = Instantiate(itemToSpawn, whereToSpawn.position, Quaternion.identity);
     }
 
-    private void butterflyMovement()
-    {
-        spawnedItem.transform.position = Vector3.MoveTowards(spawnedItem.transform.position, target, movement);
-    }
+   
 }

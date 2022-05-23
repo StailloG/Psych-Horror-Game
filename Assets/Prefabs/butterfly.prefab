@@ -184,6 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2710295274750105723}
   - component: {fileID: 2456254328714241515}
+  - component: {fileID: 5475251094501720748}
   m_Layer: 0
   m_Name: butterfly
   m_TagString: Untagged
@@ -198,7 +199,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3375227596766053057}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -26.470726, y: 10.47, z: 56.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -206,7 +207,7 @@ Transform:
   - {fileID: 2000576310073931178}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &2456254328714241515
 Animator:
   serializedVersion: 3
@@ -226,6 +227,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5475251094501720748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375227596766053057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64e0064e9e363c4a89c5b353d7ff3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 99.7, y: 0, z: 115}
+  speed: 5
+  movement: 0
+  spawnerScript: {fileID: 0}
 --- !u!1 &3626797215672813580
 GameObject:
   m_ObjectHideFlags: 0
